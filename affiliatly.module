@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Module file for affialiatly.
+ */
+
+/**
+ * Implements hook_preprocess_TEMPLATE().
+ */
+function affiliatly_preprocess_html(&$variables) {
+  $path = drupal_get_path('module', 'affiliatly');
+  $config = \Drupal::config('affiliatly.settings');
+  $code = $config->get('code');
+  if ($code) {
+    // todo: Bring the affialiatly API via another method. Library?
+    require $path . '/api_affiliatly.php';
+    affiliatly_start_tracking($code);
+  }
+}

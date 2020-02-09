@@ -1,0 +1,6 @@
+services:
+  affiliatly.track_purchase:
+    class: Drupal\affiliatly\EventSubscriber\TrackPurchase
+    arguments: ['@config.factory']
+    tags:
+      - { name: event_subscriber }

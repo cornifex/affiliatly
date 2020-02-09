@@ -32,11 +32,16 @@ class Configure extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $hash = $this->config('affiliatly.settings')->get('hash');
+    $config = $this->config('affiliatly.settings');
+    $form['code'] = [
+      '#type' => 'textfield',
+      '#title' => 'Affiliatly code',
+      '#default_value' => $config->get('code'),
+    ];
     $form['hash'] = [
       '#type' => 'textfield',
       '#title' => 'Affiliatly hash',
-      '#default_value' => $hash,
+      '#default_value' => $config->get('hash'),
     ];
     return parent::buildForm($form, $form_state);
   }
@@ -47,6 +52,7 @@ class Configure extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $this->config('affiliatly.settings')
+      ->set('code', $form_state->getValue('code'))
       ->set('hash', $form_state->getValue('hash'))
       ->save();
   }
