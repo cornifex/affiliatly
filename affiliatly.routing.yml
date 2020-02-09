@@ -1,0 +1,9 @@
+affiliatly.configure:
+  path: '/admin/commerce/config/affiliatly'
+  defaults:
+    _form: '\Drupal\affiliatly\Form\Configure'
+    _title: 'Affiliatly'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _permission: 'configure affiliatly'

@@ -1,0 +1,9 @@
+name: Affiliatly
+type: module
+description: 'PHP based integration with Affiliatly for Drupal Commerce.'
+package: Affiliatly
+core: 8.x
+dependencies:
+  - commerce:commerce_price
+  - commerce:commerce_order
+  - commerce:commerce_promotion

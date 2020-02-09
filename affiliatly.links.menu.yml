@@ -1,0 +1,5 @@
+affiliatly.configuration:
+  title: 'Affiliatly'
+  route_name: 'affiliatly.configure'
+  parent: 'commerce.configuration'
+  weight: 100
