@@ -69,6 +69,7 @@ class TrackPurchase implements EventSubscriberInterface {
       $price = $order->getTotalPrice();
       $price = number_format($price->getNumber(), 2);
       affiliatly_mark_purchase($this->code, $order->id(), $price, $this->hash);
+      // Affiliatly automatically marks the order as paid, flag it as unpaid.
       affiliatly_order_status($this->code, $order->id(), self::STATUS_UNPAID, $this->hash);
     }
   }
